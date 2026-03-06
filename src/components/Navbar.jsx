@@ -1,10 +1,33 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [active, setActive] = useState("SERVICES");
 
   const links = ["SERVICES", "PROJECTS", "ABOUT", "TECH", "CONTACT"];
+
+ useEffect(() => {
+    const handleScroll = () => {
+      const sections = ["services", "projects", "about", "tech", "contact"];
+      
+      let currentSection = "";
+      
+      sections.forEach((section) => {
+        const el = document.getElementById(section);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 150) {
+            currentSection = section.toUpperCase();
+          }
+        }
+      });
+
+      if (currentSection) setActive(currentSection);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
@@ -15,6 +38,7 @@ const Navbar = () => {
 
         html {
           scroll-behavior: smooth;
+        
         }
 
         .navbar {
@@ -125,7 +149,9 @@ const Navbar = () => {
 
           <button
             className="live-btn"
-            onClick={() => window.open("https://react-jewellery.onrender.com", "_blank")}
+            onClick={() =>
+              window.open("https://react-jewellery.onrender.com", "_blank")
+            }
           >
             LIVE PROJECT
           </button>

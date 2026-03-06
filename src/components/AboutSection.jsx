@@ -16,17 +16,17 @@ function AboutSection() {
 
         <div className="about-highlights">
           <div className="highlight-card">
-            <h3>🚀 Innovation</h3>
+            <h3> Innovation</h3>
             <p>We build modern, scalable and future-ready applications.</p>
           </div>
 
           <div className="highlight-card">
-            <h3>⚡ Performance</h3>
+            <h3> Performance</h3>
             <p>Optimized, fast and smooth user experiences.</p>
           </div>
 
           <div className="highlight-card">
-            <h3>🤝 Collaboration</h3>
+            <h3> Collaboration</h3>
             <p>Transparent communication and client-focused approach.</p>
           </div>
         </div>

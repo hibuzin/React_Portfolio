@@ -44,7 +44,7 @@ function ContactSection() {
   };
 
   return (
-    <section className="contact">
+   <section id="contact" className="contact">
       <div className="contact-container">
         {/* LEFT SIDE */}
         <div className="contact-info">
