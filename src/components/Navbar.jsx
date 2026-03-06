@@ -4,7 +4,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [active, setActive] = useState("SERVICES");
 
-  const links = ["SERVICES", "PROJECTS", "ABOUT", "TECH", "CONTACT"];
+  const links = ["SERVICES", "PROJECTS", "ABOUT", "TECH", "OUR BLOCKS","CONTACT"];
 
  useEffect(() => {
     const handleScroll = () => {
