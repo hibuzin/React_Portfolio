@@ -5,14 +5,16 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import ServicesSection from "./components/ServicesSection";
 import ProjectsSection from "./components/ProjectsSection";
+import ProcessSection from "./components/process_section"
 import AboutSection from "./components/AboutSection";
 import TechSection from "./components/TechSection";
 import ContactSection from "./components/ContactSection";
 import ClothingProject from "./pages/ClothingProject";
 import JewelleryProject from "./pages/JewelleryProject";
 import LandProject from "./pages/LandProject";
+import BlogSection from "./components/BlogSection";
 
-const scrollPositions = {}; // ✅ idha imports ku kizha add pannu
+const scrollPositions = {}; 
 
 function Home() {
   return (
@@ -20,9 +22,11 @@ function Home() {
       <Navbar />
       <Hero />
       <ServicesSection />
+      <ProcessSection />
       <ProjectsSection />
       <AboutSection />
       <TechSection />
+      <BlogSection/>
       <ContactSection />
     </>
   );

@@ -1,24 +1,39 @@
 import { useState, useEffect } from "react";
 
 const Navbar = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [active, setActive] = useState("SERVICES");
 
-  const links = ["SERVICES", "PROJECTS", "ABOUT", "TECH", "OUR BLOCKS","CONTACT"];
+  const links = [
+    { name: "SERVICES", id: "services" },
+    { name: "OUR PROCESS", id: "process" },
+     { name: "PROJECTS", id: "projects" },
+    { name: "ABOUT", id: "about" },
+    { name: "TECH", id: "tech" },
+   { name: "BLOG", id: "blog" },
+    { name: "CONTACT", id: "contact" },
+  ];
 
- useEffect(() => {
+  useEffect(() => {
     const handleScroll = () => {
-      const sections = ["services", "projects", "about", "tech", "contact"];
-      
+      const sections = [
+        "services",
+        "projects",
+        "process",
+        "about",
+        "tech",
+        "blocks",
+        "contact",
+      ];
+
       let currentSection = "";
-      
+
       sections.forEach((section) => {
         const el = document.getElementById(section);
         if (el) {
           const rect = el.getBoundingClientRect();
-          if (rect.top <= 150) {
-            currentSection = section.toUpperCase();
-          }
+          if (rect.top <= 150 && rect.bottom >= 150) {
+  currentSection = section.toUpperCase();
+}
         }
       });
 
@@ -38,25 +53,26 @@ const Navbar = () => {
 
         html {
           scroll-behavior: smooth;
-        
         }
 
-        .navbar {
-          width: 100%;
-          background: #0d0d0f;
-          border-bottom: 1px solid rgba(255,255,255,0.06);
-          padding: 0 40px;
-          height: 64px;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          flex-wrap: nowrap;
-          font-family: 'Exo 2', sans-serif;
-          position: sticky;
-          top: 0;
-          z-index: 1000;
-        }
+       .navbar {
+  width: 100%;
+  background: #0d0d0f;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding: 0 40px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Exo 2', sans-serif;
 
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+
+  background: rgba(13,13,15,0.95);
+  backdrop-filter: blur(8px);
+}
         .logo {
           font-family: 'Rajdhani', sans-serif;
           font-size: 26px;
@@ -72,7 +88,6 @@ const Navbar = () => {
           display: flex;
           align-items: center;
           gap: 40px;
-          flex-wrap: nowrap;
         }
 
         .nav-links {
@@ -80,7 +95,6 @@ const Navbar = () => {
           align-items: center;
           gap: 32px;
           list-style: none;
-          flex-wrap: nowrap;
         }
 
         .nav-links a {
@@ -125,7 +139,7 @@ const Navbar = () => {
 
         @media (max-width: 768px) {
           .navbar { padding: 0 20px; }
-          .nav-links, .live-btn { display: none; }
+          .nav-links { gap: 16px; }
         }
       `}</style>
 
@@ -135,13 +149,13 @@ const Navbar = () => {
         <div className="nav-right">
           <ul className="nav-links">
             {links.map((link) => (
-              <li key={link}>
+              <li key={link.name}>
                 <a
-                  href={`#${link.toLowerCase()}`}
-                  className={active === link ? "active" : ""}
-                  onClick={() => setActive(link)}
+                  href={`#${link.id}`}
+                  className={active === link.id.toUpperCase() ? "active" : ""}
+                  onClick={() => setActive(link.id.toUpperCase())}
                 >
-                  {link}
+                  {link.name}
                 </a>
               </li>
             ))}

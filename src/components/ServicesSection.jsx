@@ -18,6 +18,7 @@ const services = [
     desc: "We offer a free project consultation to understand your requirements, suggest the right tech stack, and provide a clear development roadmap.",
     accent: "#00E5FF",
   },
+
   {
     icon: <Smartphone size={22} />,
     title: "Mobile Apps",
@@ -28,6 +29,24 @@ const services = [
     icon: <Globe size={22} />,
     title: "Web Development",
     desc: "High-performance, responsive websites and web applications built with modern technologies like Flutter Web, React, and Next.js.",
+    accent: "#00D4FF",
+  },
+  {
+    icon: <Globe size={22} />,
+    title: "MVP Development",
+    desc: "We build Start products quickly, we can deliver your MVP within 1 day",
+    accent: "#00D4FF",
+  },
+  {
+    icon: <Globe size={22} />,
+    title: "UI Integration",
+    desc: "Convert Figma designs to performing apps",
+    accent: "#00D4FF",
+  },
+  {
+    icon: <Globe size={22} />,
+    title: "Backend Development",
+    desc: "Scalable API's using Node.js",
     accent: "#00D4FF",
   },
   {

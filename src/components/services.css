@@ -3,6 +3,8 @@
   background: #070b1a;
   text-align: center;
   color: white;
+
+  scroll-margin-top: 80px;
 }
 
 .section-label {

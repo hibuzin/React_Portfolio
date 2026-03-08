@@ -13,17 +13,16 @@ const Hero = () => {
         }
 
         .hero {
-          min-height: 100vh;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 100px 72px;
-          background: #0A0E1A;
-          color: white;
-          font-family: 'DM Sans', sans-serif;
-          position: relative;
-          overflow: hidden;
-        }
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 100px 72px;
+  background: #0A0E1A;
+  color: white;
+  font-family: 'DM Sans', sans-serif;
+  position: relative;
+}
 
         .hero::before {
           content: '';
@@ -309,18 +308,20 @@ const Hero = () => {
 
         <div className="hero-left">
           <h1 className="hero-title">
-            We Craft High-Performance <br />
+            We Build Scalable <br />
             <span className="highlight">Web & Mobile Apps</span> <br />
-            for Startups and <br />
-            Growing Business
+          <br />
+            
           </h1>
         </div>
 
         <div className="hero-right">
           <p className="hero-desc">
-            From MVP to enterprise-grade — we craft pixel-perfect
-            products that perform at scale. Trusted by startups
-            and Fortune 500s alike.
+            Helping Startups and bussiness turn their ideas into
+            powerful digital products.
+            <br/>
+            We design, develop and launch scalable mobile and web applications 
+            using modern technologies like Flutter, React        
           </p>
 
           <div className="hero-buttons">
