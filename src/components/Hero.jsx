@@ -13,16 +13,17 @@ const Hero = () => {
         }
 
         .hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 100px 72px;
-  background: #0A0E1A;
-  color: white;
-  font-family: 'DM Sans', sans-serif;
-  position: relative;
-}
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 5px 72px 100px;
+          background: #0A0E1A;
+          color: white;
+          font-family: 'DM Sans', sans-serif;
+          position: relative;
+          scroll-margin-top: 80px;
+        }
 
         .hero::before {
           content: '';
@@ -57,12 +58,10 @@ const Hero = () => {
 
         /* TOP CENTER TAG */
         .hero-tag {
-         
-  position: absolute;
-  top: 40px;
-  left: 25%;   /* was 50% */
-  transform: translateX(-50%);
-
+          position: absolute;
+          top: 40px;
+          left: 25%;
+          transform: translateX(-50%);
           display: inline-flex;
           align-items: center;
           gap: 8px;
@@ -75,8 +74,6 @@ const Hero = () => {
           letter-spacing: 2.5px;
           color: #02ACE8;
           text-transform: uppercase;
-          white-space: nowrap;
-          z-index: 10;
         }
 
         .hero-tag::before {
@@ -94,7 +91,7 @@ const Hero = () => {
         }
 
         .hero-left {
-         margin-top: 20px;
+          margin-top: 20px;
           flex: 1;
           position: relative;
           z-index: 2;
@@ -107,13 +104,10 @@ const Hero = () => {
         }
 
         .hero-title {
-          font-family: 'Poppins', sans-serif;
-          font-size: 38px;
-          font-weight: 700;
-          line-height: 1.15;
-          letter-spacing: 1px;
-          color: #F0F6FF;
-        }
+  font-size: 30px;
+  line-height: 1.25;
+  margin-bottom: 2px;   /* gap reduce */
+}
 
         .hero-title .highlight {
           background: linear-gradient(90deg, #02ACE8 10%, #7C6EFA 80%);
@@ -134,7 +128,7 @@ const Hero = () => {
           color: #8A9BBE;
           font-size: 17px;
           line-height: 1.85;
-          margin-bottom: 44px;
+          margin-bottom: 14px;
           max-width: 420px;
         }
 
@@ -148,7 +142,7 @@ const Hero = () => {
           background: linear-gradient(135deg, #02ACE8, #7C6EFA);
           border: none;
           padding: 15px 30px;
-          border-radius: 14px;
+          border-radius: 1px;
           font-weight: 600;
           cursor: pointer;
           color: white;
@@ -160,6 +154,7 @@ const Hero = () => {
           box-shadow: 0 8px 28px rgba(2, 172, 232, 0.28);
           position: relative;
           overflow: hidden;
+          text-decoration: none;
         }
 
         .btn-primary::after {
@@ -188,10 +183,11 @@ const Hero = () => {
           background: transparent;
           border: 1.5px solid rgba(255,255,255,0.15);
           padding: 15px 30px;
-          border-radius: 14px;
+          border-radius: 1px;
           font-weight: 600;
           cursor: pointer;
           color: #B4C4D8;
+          text-decoration: none;
           font-size: 13px;
           letter-spacing: 1.2px;
           text-transform: uppercase;
@@ -292,14 +288,80 @@ const Hero = () => {
           .hero-title { font-size: 42px; }
         }
 
+        /* MOBILE FIX */
+        @media (max-width: 768px) {
+          .hero {
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 100px 24px 80px;
+            min-height: 100vh;
+          }
+
+          .hero-tag {
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            white-space: nowrap;
+            top: 28px;
+          }
+
+          .hero-left {
+            width: 100%;
+            margin-top: 40px;
+          }
+
+          .hero-title {
+            font-size: 30px;
+            line-height: 1.25;
+          }
+
+          .hero-right {
+            padding-left: 0;
+            margin-top: 32px;
+            width: 100%;
+          }
+
+          .hero-desc {
+            font-size: 15px;
+            line-height: 1.75;
+            margin-bottom: 32px;
+            max-width: 100%;
+          }
+
+          .hero-buttons {
+            flex-direction: column;
+            width: 100%;
+          }
+
+          .btn-primary,
+          .btn-outline {
+            text-align: center;
+            width: 100%;
+          }
+        }
+
         @media (max-width: 480px) {
-          .hero-title { font-size: 34px; }
-          .hero-buttons { flex-direction: column; }
-          .btn-primary, .btn-outline { text-align: center; }
+          .hero {
+            padding: 90px 20px 70px;
+          }
+
+          .hero-title { font-size: 26px; }
+
+          .hero-tag {
+            font-size: 10px;
+            letter-spacing: 1px;
+            padding: 4px 12px;
+          }
+
+          .hero-desc {
+            font-size: 14px;
+          }
         }
       `}</style>
 
-      <section className="hero">
+      <section id="home" className="hero">
 
         {/* TOP CENTER TAG */}
         <div className="hero-tag">
@@ -308,11 +370,9 @@ const Hero = () => {
 
         <div className="hero-left">
           <h1 className="hero-title">
-            We Build Scalable <br />
-            <span className="highlight">Web & Mobile Apps</span> <br />
-          <br />
-            
-          </h1>
+  We Build Scalable <br />
+  <span className="highlight">Web & Mobile Apps</span>
+</h1>
         </div>
 
         <div className="hero-right">
@@ -325,9 +385,9 @@ const Hero = () => {
           </p>
 
           <div className="hero-buttons">
-            <button className="btn-primary">View Our Work</button>
-            <button className="btn-outline">Get In Touch</button>
-          </div>
+  <a href="#projects" className="btn-primary">View Our Work</a>
+  <a href="#contact" className="btn-outline">Get In Touch</a>
+</div>
         </div>
 
     

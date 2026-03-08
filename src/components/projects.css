@@ -3,7 +3,8 @@
   background: #0b1220;
 }
 
-.projects-title {
+/* Section Title */
+.section-title {
   font-size: 40px;
   margin-bottom: 50px;
   background: linear-gradient(to right, #22d3ee, #6366f1);
@@ -11,12 +12,14 @@
   color: transparent;
 }
 
+/* Grid Layout */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 30px;
 }
 
+/* Project Card */
 .project-card {
   background: #111827;
   padding: 30px;
@@ -30,32 +33,36 @@
   box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
 }
 
-.project-card.full {
+/* Full width card */
+.project-card.full-width {
   grid-column: span 2;
 }
 
+/* Category badge */
 .project-category {
   padding: 6px 14px;
   font-size: 12px;
   border-radius: 8px;
   display: inline-block;
   margin-bottom: 20px;
-  color: #9ca3af; /* normal gray */
-  transition: 0.3s ease;
+  color: #9ca3af;
 }
 
+/* Title */
 .project-card h3 {
   font-size: 26px;
   margin-bottom: 15px;
-  color: #ffffff; /* white title */
+  color: #ffffff;
 }
 
+/* Description */
 .project-card p {
   color: #9ca3af;
   margin-bottom: 20px;
   line-height: 1.6;
 }
 
+/* Tech stack */
 .tech-stack span {
   background: #0f172a;
   border: 1px solid #1f2937;
@@ -63,5 +70,41 @@
   border-radius: 8px;
   font-size: 12px;
   margin-right: 10px;
-  color: #d1d5db; /* light gray text */
+  color: #d1d5db;
+}
+
+/* ---------------- MOBILE RESPONSIVE ---------------- */
+
+@media (max-width: 768px) {
+
+  .projects {
+    padding: 60px 20px;
+  }
+
+  .section-title {
+    font-size: 32px;
+    margin-bottom: 40px;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .project-card {
+    padding: 24px;
+  }
+
+  .project-card.full-width {
+  grid-column: span 2;
+}
+
+  .project-card h3 {
+    font-size: 22px;
+  }
+
+  .project-card p {
+    font-size: 14px;
+  }
+
 }
