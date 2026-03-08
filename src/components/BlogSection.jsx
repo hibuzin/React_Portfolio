@@ -1,22 +1,14 @@
 import React from "react";
 
-const blogs = [
+  const blogs = [
   {
-    title: "How We Build MVP in 24 Hours",
-    desc: "Learn how our team builds fast MVP products using modern technologies.",
-    img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c"
-  },
-  {
-    title: "Best UI Design Tips for Developers",
-    desc: "Simple UI tricks that make your product look premium and modern.",
-    img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0"
-  },
-  {
-    title: "Flutter vs React for Startups",
-    desc: "Choosing the right tech stack can save months of development time.",
-    img: "https://images.unsplash.com/photo-1518770660439-4636190af475"
+    title: "How We Built a Real-Time Inventory System for a Jewellery E-commerce Website",
+    desc: "A case study on building a scalable real-time inventory system for a jewellery store.",
+    img: "/assets/jewellery.png",
+    link: "https://medium.com/@hibuzin/how-we-built-a-real-time-inventory-system-for-a-jewellery-e-commerce-website-44554646ca1d"
   }
 ];
+
 
 const BlogSection = () => {
   return (
@@ -38,7 +30,7 @@ const BlogSection = () => {
 
         .blog-grid{
           display:grid;
-          grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+          grid-template-columns:repeat(3,1fr);
           gap:30px;
         }
 
@@ -85,10 +77,24 @@ const BlogSection = () => {
           background:#5a52e0;
         }
 
+        /* Tablet */
+        @media (max-width:900px){
+          .blog-grid{
+            grid-template-columns:repeat(2,1fr);
+          }
+        }
+
+        /* Mobile */
+        @media (max-width:600px){
+          .blog-grid{
+            grid-template-columns:1fr;
+          }
+        }
+
       `}</style>
 
-     <section id="blog" className="blog-section">
-  <h2 className="blog-title">Latest Blogs</h2>
+      <section id="blog" className="blog-section">
+        <h2 className="blog-title">Latest Blogs</h2>
 
         <div className="blog-grid">
           {blogs.map((blog, index) => (
@@ -96,10 +102,13 @@ const BlogSection = () => {
               <img src={blog.img} alt="blog"/>
               <h3>{blog.title}</h3>
               <p>{blog.desc}</p>
-              <button>Read More</button>
+            <button onClick={() => window.open(blog.link, "_blank")}>
+  Read More
+</button>
             </div>
           ))}
         </div>
+
       </section>
     </>
   );
