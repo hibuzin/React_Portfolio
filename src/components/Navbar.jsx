@@ -15,15 +15,15 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = [
-        "services",
-        "projects",
-        "process",
-        "about",
-        "tech",
-        "blocks",
-        "contact",
-      ];
+     const sections = [
+  "services",
+  "process",
+  "projects",
+  "about",
+  "tech",
+  "blog",
+  "contact",
+];
 
       let currentSection = "";
 

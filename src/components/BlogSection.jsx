@@ -87,8 +87,8 @@ const BlogSection = () => {
 
       `}</style>
 
-      <section className="blog-section">
-        <h2 className="blog-title">Latest Blogs</h2>
+     <section id="blog" className="blog-section">
+  <h2 className="blog-title">Latest Blogs</h2>
 
         <div className="blog-grid">
           {blogs.map((blog, index) => (
