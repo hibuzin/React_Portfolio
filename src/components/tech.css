@@ -57,3 +57,7 @@
   font-size: 13px;
   margin-top: 4px;
 }
+
+.tech-section {
+  overflow: hidden;  /* ← இதை add பண்ணு */
+}

@@ -1,9 +1,8 @@
-
 .nav-right {
   display: flex;
   align-items: center;
   gap: 40px;
-  white-space: nowrap;  
-  flex-wrap: nowrap; 
-  
+  white-space: nowrap;
+  flex-wrap: nowrap;
+  overflow: hidden; /* ← இதை add பண்ணு */
 }

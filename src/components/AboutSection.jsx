@@ -1,6 +1,9 @@
 import React from "react";
 import "./about.css";
 
+import ahi from "/assets/ahi.png";
+import arshath from "/assets/clothing6.png";
+import askar from "/assets/clothing6.png";
 function AboutSection() {
   return (
     <section id="about" className="about">
@@ -15,20 +18,38 @@ function AboutSection() {
         </p>
 
         <div className="about-highlights">
-          <div className="highlight-card">
-            <h3> Innovation</h3>
-            <p>We build modern, scalable and future-ready applications.</p>
-          </div>
 
           <div className="highlight-card">
-            <h3> Performance</h3>
-            <p>Optimized, fast and smooth user experiences.</p>
+            <img src={ahi} alt="AHI" className="profile-img"/>
+            <h3>AHI</h3>
+            <span className="role">Lead</span>
+            <p>
+              Leads the team and manages project planning, ensuring every
+              product is delivered with quality and performance.
+            </p>
           </div>
 
-          <div className="highlight-card">
-            <h3> Collaboration</h3>
-            <p>Transparent communication and client-focused approach.</p>
+           <div className="highlight-card">
+            <img src={askar} alt="ASKAR" className="profile-img"/>
+            <h3>ASKAR</h3>
+            <span className="role">Frontend Developer</span>
+            <p>
+              Creates responsive and modern user interfaces focused on
+              performance, usability, and great user experience.
+            </p>
           </div>
+
+        
+          <div className="highlight-card">
+            <img src={arshath} alt="ARSHATH" className="profile-img"/>
+            <h3>ARSHATH</h3>
+            <span className="role">Backend Developer</span>
+            <p>
+              Builds secure and scalable APIs using modern backend
+              technologies and ensures smooth server performance.
+            </p>
+          </div>
+
         </div>
       </div>
     </section>

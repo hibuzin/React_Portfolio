@@ -8,7 +8,10 @@ import {
   Paintbrush, 
   Sparkles, 
   RefreshCw, 
-  Bug 
+  Bug,
+  Zap,
+  Layout,
+  Server,
 } from "lucide-react";
 
 const services = [
@@ -18,7 +21,6 @@ const services = [
     desc: "We offer a free project consultation to understand your requirements, suggest the right tech stack, and provide a clear development roadmap.",
     accent: "#00E5FF",
   },
-
   {
     icon: <Smartphone size={22} />,
     title: "Mobile Apps",
@@ -32,22 +34,22 @@ const services = [
     accent: "#00D4FF",
   },
   {
-    icon: <Globe size={22} />,
+    icon: <Zap size={22} />,
     title: "MVP Development",
-    desc: "We build Start products quickly, we can deliver your MVP within 1 day",
-    accent: "#00D4FF",
+    desc: "We build products quickly — we can deliver your MVP within 1 day.",
+    accent: "#F59E0B",
   },
   {
-    icon: <Globe size={22} />,
+    icon: <Layout size={22} />,
     title: "UI Integration",
-    desc: "Convert Figma designs to performing apps",
-    accent: "#00D4FF",
+    desc: "Convert Figma designs to pixel-perfect, performant applications.",
+    accent: "#818CF8",
   },
   {
-    icon: <Globe size={22} />,
+    icon: <Server size={22} />,
     title: "Backend Development",
-    desc: "Scalable API's using Node.js",
-    accent: "#00D4FF",
+    desc: "Scalable APIs using Node.js built for speed, security, and reliability.",
+    accent: "#34D399",
   },
   {
     icon: <Paintbrush size={22} />,
@@ -83,7 +85,6 @@ export default function ServicesSection() {
       <p className="section-sub">
         End-to-end software solutions tailored to your business goals.
       </p>
-
       <div className="services-grid">
         {services.map((service, index) => (
           <div
@@ -94,10 +95,7 @@ export default function ServicesSection() {
             <div className="icon-box">{service.icon}</div>
             <h3>{service.title}</h3>
             <p>{service.desc}</p>
-
-            <div className="learn-more">
-              Learn more →
-            </div>
+            <div className="learn-more">Learn more →</div>
           </div>
         ))}
       </div>

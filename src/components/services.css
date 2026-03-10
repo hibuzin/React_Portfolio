@@ -3,73 +3,88 @@
   background: #070b1a;
   text-align: center;
   color: white;
-
-  scroll-margin-top: 80px;
+  scroll-margin-top: 70px;
 }
 
+/* Label */
 .section-label {
   color: #00d4ff;
   font-size: 12px;
   letter-spacing: 3px;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 }
 
+/* Title */
 .section-title {
   font-size: 40px;
-  margin-bottom: 12px;
+  margin-bottom: 2px;
   background: linear-gradient(to right, #00d4ff, #8b5cf6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
+/* Sub text */
 .section-sub {
   color: #94a3b8;
   max-width: 600px;
-  margin: 0 auto 60px;
+  margin: 0 auto 50px;
   font-size: 15px;
   line-height: 1.6;
 }
 
+/* Grid */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
 
+/* Card */
 .service-card {
   background: rgba(15, 23, 42, 0.6);
   padding: 28px;
-  border-radius: 10px;
+  border-radius: 12px;
   border: 1px solid #1f2937;
   text-align: left;
-  transition: 0.3s;
+  transition: 0.35s;
+  position: relative;
 }
 
+/* Hover */
 .service-card:hover {
   border: 1px solid var(--accent);
-  box-shadow: 0 0 40px var(--accent);
-  transform: translateY(-5px);
+  background: linear-gradient(
+    145deg,
+    rgba(255,255,255,0.02),
+    color-mix(in srgb, var(--accent) 12%, transparent)
+  );
+  box-shadow: 0 0 35px color-mix(in srgb, var(--accent) 40%, transparent);
+  transform: translateY(-6px);
 }
 
+/* Icon */
 .icon-box {
   width: 48px;
   height: 48px;
-  border-radius: 8px;
+  border-radius: 10px;
   background: rgba(255,255,255,0.04);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   color: var(--accent);
-  border: 1px solid rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: 0.3s;
 }
 
+/* Card title */
 .service-card h3 {
   font-size: 18px;
   margin-bottom: 10px;
   color: white;
 }
 
+/* Card text */
 .service-card p {
   font-size: 14px;
   color: #94a3b8;
@@ -77,6 +92,7 @@
   line-height: 1.6;
 }
 
+/* Learn more */
 .learn-more {
   font-size: 13px;
   font-weight: 600;
@@ -89,7 +105,7 @@
   opacity: 0.8;
 }
 
-/* 📱 Responsive */
+/* Responsive */
 @media (max-width: 992px) {
   .services-grid {
     grid-template-columns: repeat(2, 1fr);

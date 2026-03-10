@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
 .about {
   padding: 80px 8%;
   background: #0f172a;
@@ -20,6 +22,7 @@
   font-size: 16px;
 }
 
+/* cards container */
 .about-highlights {
   display: flex;
   gap: 30px;
@@ -27,26 +30,63 @@
   flex-wrap: wrap;
 }
 
+/* card */
 .highlight-card {
   background: #111827;
-  padding: 30px;
+  padding: 35px;
   border-radius: 16px;
   width: 280px;
+  min-height: 270px; /* height increase */
   transition: 0.3s ease;
   border: 1px solid #1f2937;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
+/* hover */
 .highlight-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 25px rgba(34, 211, 238, 0.2);
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px rgba(34, 211, 238, 0.25);
 }
 
+/* name text */
 .highlight-card h3 {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  font-family: "Montserrat", sans-serif; /* font added */
 }
 
+/* role text */
 .highlight-card p {
   color: #9ca3af;
   font-size: 14px;
+}
+
+.role{
+  display:block;
+  font-size:14px;
+  color:#22d3ee;
+  margin-bottom:10px;
+  font-weight:500;
+}
+
+.highlight-card p{
+  font-size:14px;
+  color:#9ca3af;
+  line-height:1.6;
+}
+
+.profile-img{
+  width:80px;
+  height:80px;
+  border-radius:70%;
+  object-fit:cover;
+  margin-bottom:15px;
+  
 }
