@@ -1,20 +1,24 @@
 import React from "react";
 
-  const blogs = [
+const blogs = [
   {
     title: "How We Built a Real-Time Inventory System for a Jewellery E-commerce Website",
     desc: "A case study on building a scalable real-time inventory system for a jewellery store.",
     img: "/assets/jewellery.png",
     link: "https://medium.com/@hibuzin/how-we-built-a-real-time-inventory-system-for-a-jewellery-e-commerce-website-44554646ca1d"
+  },
+  {
+    title: "Client Needed an Urgent MVP — We Delivered a Complete Jewellery Store in 24 Hours",
+    desc: "Learn how we rapidly design, develop, and launch MVP products for startups using modern web and mobile technologies.",
+    img: "/assets/jewellery1.png",
+    link: "https://medium.com/@hibuzin/client-needed-an-urgent-mvp-we-delivered-a-complete-jewellery-store-in-24-hours-c63923138efd"
   }
 ];
-
 
 const BlogSection = () => {
   return (
     <>
       <style>{`
-
         .blog-section{
           padding:100px 72px;
           background:#0e161f;
@@ -86,11 +90,27 @@ const BlogSection = () => {
 
         /* Mobile */
         @media (max-width:600px){
+          .blog-section{
+            padding:80px 20px;
+          }
+
+          .blog-title{
+            font-size:30px;
+            margin-bottom:40px;
+          }
+
           .blog-grid{
             grid-template-columns:1fr;
           }
-        }
 
+          .blog-card h3{
+            font-size:18px;
+          }
+
+          .blog-card p{
+            font-size:13px;
+          }
+        }
       `}</style>
 
       <section id="blog" className="blog-section">
@@ -99,16 +119,15 @@ const BlogSection = () => {
         <div className="blog-grid">
           {blogs.map((blog, index) => (
             <div className="blog-card" key={index}>
-              <img src={blog.img} alt="blog"/>
+              <img src={blog.img} alt={blog.title} />
               <h3>{blog.title}</h3>
               <p>{blog.desc}</p>
-            <button onClick={() => window.open(blog.link, "_blank")}>
-  Read More
-</button>
+              <button onClick={() => window.open(blog.link, "_blank")}>
+                Read More
+              </button>
             </div>
           ))}
         </div>
-
       </section>
     </>
   );
