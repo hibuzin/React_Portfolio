@@ -22,6 +22,7 @@ const Hero = () => {
           color: white;
           font-family: 'DM Sans', sans-serif;
           position: relative;
+          overflow: hidden;
           scroll-margin-top: 80px;
         }
 
@@ -56,10 +57,63 @@ const Hero = () => {
           50% { transform: translateY(-30px) scale(1.05); }
         }
 
+        /* =========================
+           TOP VERTICAL SCROLL ASSETS
+        ========================= */
+       .top-asset-wrap {
+  position: absolute;
+  top: 20px;
+  left: 67%;
+  transform: translateX(-50%);
+  width: 210px;
+  height: 220px;
+  overflow: hidden;
+  z-index: 3;
+  pointer-events: none;
+  border-radius: 1px;
+  mask-image: linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%);
+}
+        .top-asset-track {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          height: max-content;
+          animation: scrollVertical 10s linear infinite;
+        }
+
+        @keyframes scrollVertical {
+          0% {
+            transform: translateY(0);
+          }
+          100% {
+            transform: translateY(-50%);
+          }
+        }
+
+        .top-asset-card {
+          width: 110px;
+          height: 110px;
+          border-radius: 20px;
+          overflow: hidden;
+          border: 1px solid rgba(255,255,255,0.08);
+          background: rgba(255,255,255,0.04);
+          backdrop-filter: blur(10px);
+          box-shadow: 0 8px 24px rgba(0,0,0,0.22);
+          flex-shrink: 0;
+        }
+
+        .top-asset-card img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+
         /* TOP CENTER TAG */
         .hero-tag {
           position: absolute;
-          top: 40px;
+          top: 140px;
           left: 25%;
           transform: translateX(-50%);
           display: inline-flex;
@@ -69,11 +123,12 @@ const Hero = () => {
           border: 1px solid rgba(2, 172, 232, 0.3);
           border-radius: 100px;
           padding: 2px 8px;
-          font-size: 25px;
+          font-size: 15px;
           font-weight: 400;
           letter-spacing: 2.5px;
           color: #02ACE8;
           text-transform: uppercase;
+          z-index: 4;
         }
 
         .hero-tag::before {
@@ -104,10 +159,10 @@ const Hero = () => {
         }
 
         .hero-title {
-  font-size: 30px;
-  line-height: 1.25;
-  margin-bottom: 2px;   /* gap reduce */
-}
+          font-size: 30px;
+          line-height: 1.25;
+          margin-bottom: 2px;
+        }
 
         .hero-title .highlight {
           background: linear-gradient(90deg, #02ACE8 10%, #7C6EFA 80%);
@@ -122,6 +177,7 @@ const Hero = () => {
           position: relative;
           z-index: 2;
           animation: fadeSlideUp 0.9s 0.2s ease both;
+          margin-top: 250px; 
         }
 
         .hero-desc {
@@ -206,72 +262,6 @@ const Hero = () => {
           transform: scale(0.97);
         }
 
-        .flutter-card {
-          position: absolute;
-          right: 72px;
-          top: 50%;
-          transform: translateY(-50%);
-          width: 220px;
-          background: rgba(255,255,255,0.04);
-          border: 1px solid rgba(255,255,255,0.08);
-          border-radius: 24px;
-          padding: 24px;
-          backdrop-filter: blur(16px);
-          display: flex;
-          flex-direction: column;
-          gap: 14px;
-          z-index: 1;
-          animation: cardFloat 6s ease-in-out infinite;
-          pointer-events: none;
-        }
-
-        @keyframes cardFloat {
-          0%, 100% { transform: translateY(-50%) translateY(0px); }
-          50% { transform: translateY(-50%) translateY(-14px); }
-        }
-
-        .flutter-card-stat {
-          display: flex;
-          flex-direction: column;
-          gap: 4px;
-        }
-
-        .flutter-card-stat .stat-num {
-          font-family: 'Space Grotesk', sans-serif;
-          font-size: 28px;
-          font-weight: 700;
-          color: #F0F6FF;
-        }
-
-        .flutter-card-stat .stat-label {
-          font-size: 12px;
-          color: #6B7E9A;
-          letter-spacing: 0.5px;
-        }
-
-        .divider {
-          height: 1px;
-          background: rgba(255,255,255,0.07);
-        }
-
-        .card-badge {
-          display: inline-flex;
-          align-items: center;
-          gap: 6px;
-          font-size: 11px;
-          font-weight: 600;
-          color: #34D399;
-          letter-spacing: 0.5px;
-        }
-
-        .card-badge::before {
-          content: '';
-          width: 6px;
-          height: 6px;
-          border-radius: 50%;
-          background: #34D399;
-        }
-
         @media (max-width: 1200px) {
           .flutter-card { display: none; }
         }
@@ -281,11 +271,19 @@ const Hero = () => {
             flex-direction: column;
             padding: 90px 32px;
           }
+
           .hero-right {
             padding-left: 0;
             margin-top: 52px;
           }
-          .hero-title { font-size: 42px; }
+
+          .hero-title {
+            font-size: 42px;
+          }
+
+          .top-asset-wrap {
+            display: none;
+          }
         }
 
         /* MOBILE FIX */
@@ -340,6 +338,10 @@ const Hero = () => {
             text-align: center;
             width: 100%;
           }
+
+          .top-asset-wrap {
+            display: none;
+          }
         }
 
         @media (max-width: 480px) {
@@ -347,7 +349,9 @@ const Hero = () => {
             padding: 90px 20px 70px;
           }
 
-          .hero-title { font-size: 26px; }
+          .hero-title {
+            font-size: 26px;
+          }
 
           .hero-tag {
             font-size: 10px;
@@ -363,35 +367,53 @@ const Hero = () => {
 
       <section id="home" className="hero">
 
+        {/* TOP VERTICAL SCROLLING ASSETS */}
+        <div className="top-asset-wrap">
+          <div className="top-asset-track">
+            <div className="top-asset-card">
+              <img src="/assets/clothing1.png" alt="clothing 1" />
+            </div>
+
+            <div className="top-asset-card">
+              <img src="/assets/clothing2.png" alt="clothing 2" />
+            </div>
+
+            {/* duplicate same sequence for seamless loop */}
+            <div className="top-asset-card">
+              <img src="/assets/clothing1.png" alt="clothing 1 duplicate" />
+            </div>
+
+            <div className="top-asset-card">
+              <img src="/assets/clothing2.png" alt="clothing 2 duplicate" />
+            </div>
+          </div>
+        </div>
+
         {/* TOP CENTER TAG */}
         <div className="hero-tag">
-          Your MVP will be ready in 24 hrs
+          We Build Scalable Web & Mobile Apps
         </div>
 
         <div className="hero-left">
           <h1 className="hero-title">
-  We Build Scalable <br />
-  <span className="highlight">Web & Mobile Apps</span>
-</h1>
+            Your MVP Will Be Ready in 24 hrs
+          </h1>
         </div>
 
         <div className="hero-right">
           <p className="hero-desc">
             Helping Startups and bussiness turn their ideas into
             powerful digital products.
-            <br/>
+            <br />
             We design, develop and launch scalable mobile and web applications 
-            using modern technologies like Flutter, React        
+            using modern technologies like Flutter, React
           </p>
 
           <div className="hero-buttons">
-  <a href="#projects" className="btn-primary">View Our Work</a>
-  <a href="#contact" className="btn-outline">Get In Touch</a>
-</div>
+            <a href="#projects" className="btn-primary">View Our Work</a>
+            <a href="#contact" className="btn-outline">Get In Touch</a>
+          </div>
         </div>
-
-    
-
       </section>
     </>
   );

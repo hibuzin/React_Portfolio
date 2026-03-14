@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 
 const Navbar = () => {
-
   const [active, setActive] = useState("HOME");
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -16,9 +15,7 @@ const Navbar = () => {
   ];
 
   useEffect(() => {
-
     const handleScroll = () => {
-
       const sections = [
         "home",
         "services",
@@ -47,14 +44,24 @@ const Navbar = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
 
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // optional: lock body scroll when mobile menu open
+  useEffect(() => {
+    if (window.innerWidth <= 900) {
+      document.body.style.overflow = menuOpen ? "hidden" : "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [menuOpen]);
 
   return (
     <>
       <style>{`
-
         @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Exo+2:wght@400;600&display=swap');
 
         *{
@@ -69,10 +76,8 @@ const Navbar = () => {
 
         .navbar{
           width:100%;
-          background:#0d0d0f;
-          border-bottom:1px solid rgba(255,255,255,0.06);
-          padding:0 40px;
           height:64px;
+          padding:0 40px;
 
           display:flex;
           align-items:center;
@@ -86,6 +91,7 @@ const Navbar = () => {
 
           background:rgba(13,13,15,0.95);
           backdrop-filter:blur(8px);
+          border-bottom:1px solid rgba(255,255,255,0.06);
         }
 
         .logo{
@@ -97,6 +103,7 @@ const Navbar = () => {
           -webkit-text-fill-color:transparent;
           letter-spacing:2px;
           cursor:pointer;
+          z-index:10001;
         }
 
         .nav-right{
@@ -119,7 +126,7 @@ const Navbar = () => {
           letter-spacing:1.5px;
           color:#94a3b8;
           cursor:pointer;
-          transition:color .2s;
+          transition:color .25s ease;
           white-space:nowrap;
         }
 
@@ -133,8 +140,7 @@ const Navbar = () => {
           color:#e2e8f0;
         }
 
-        /* ── HIRE US: Glow + Pulse slow & smooth ── */
-
+        /* HIRE US */
         @keyframes glowPulse {
           0% {
             transform: scale(1);
@@ -157,26 +163,26 @@ const Navbar = () => {
           }
         }
 
-        .live-btn {
-          background: linear-gradient(135deg, #6366f1, #8b5cf6);
-          color: #fff;
-          border: none;
-          padding: 10px 20px;
-          border-radius: 1px;
-          font-size: 13px;
-          font-weight: 700;
-          letter-spacing: 1.5px;
-          cursor: pointer;
-          white-space: nowrap;
-          transition: opacity 0.3s, transform 0.3s;
+        .live-btn{
+          background:linear-gradient(135deg,#6366f1,#8b5cf6);
+          color:#fff;
+          border:none;
+          padding:10px 20px;
+          border-radius:1px;
+          font-size:13px;
+          font-weight:700;
+          letter-spacing:1.5px;
+          cursor:pointer;
+          white-space:nowrap;
+          transition:opacity 0.3s, transform 0.3s;
 
-          animation: glowPulse 2.8s ease-in-out infinite;
+          animation:glowPulse 2.8s ease-in-out infinite;
         }
 
-        .live-btn:hover {
-          opacity: 0.92;
-          animation-play-state: paused;
-          transform: scale(1.08);
+        .live-btn:hover{
+          opacity:0.92;
+          animation-play-state:paused;
+          transform:scale(1.08);
           box-shadow:
             0 0 10px 4px rgba(139, 92, 246, 0.45),
             0 0 24px 8px rgba(99, 102, 241, 0.25),
@@ -185,62 +191,193 @@ const Navbar = () => {
 
         .menu-icon{
           display:none;
-          font-size:26px;
-          color:white;
+          width:42px;
+          height:42px;
+          border-radius:12px;
+          border:1px solid rgba(255,255,255,0.08);
+          background:rgba(255,255,255,0.04);
+          color:#fff;
           cursor:pointer;
+
+          align-items:center;
+          justify-content:center;
+
+          font-size:22px;
+          line-height:1;
+          user-select:none;
+          transition:all .25s ease;
+          z-index:10001;
         }
 
-        /* MOBILE */
+        .menu-icon:hover{
+          background:rgba(255,255,255,0.08);
+          border-color:rgba(56,189,248,0.25);
+        }
 
+        .mobile-overlay{
+          display:none;
+        }
+
+        /* =========================
+           MOBILE ONLY FIX
+        ========================= */
         @media(max-width:900px){
-
           .navbar{
-            padding:0 20px;
+            padding:0 18px;
+            height:64px;
           }
 
-          .menu-icon{
-            display:block;
+          .logo{
+            font-size:24px;
           }
 
-          .nav-links{
-            position:absolute;
-            top:64px;
-            right:0;
-
-            background:#0d0d0f;
-
-            flex-direction:column;
-            width:220px;
-            padding:25px;
-
-            gap:20px;
-
-            transform:translateX(100%);
-            transition:.3s ease;
-          }
-
-          .nav-links.open{
-            transform:translateX(0);
+          .nav-right{
+            gap:12px;
           }
 
           .live-btn{
             display:none;
           }
 
-          .nav-right{
-            gap:16px;
+          .menu-icon{
+            display:flex;
           }
 
+          .mobile-overlay{
+            display:block;
+            position:fixed;
+            inset:64px 0 0 0;
+            background:rgba(0,0,0,0.45);
+            backdrop-filter:blur(4px);
+            opacity:0;
+            pointer-events:none;
+            transition:opacity .28s ease;
+            z-index:9997;
+          }
+
+          .mobile-overlay.show{
+            opacity:1;
+            pointer-events:auto;
+          }
+
+          .nav-links{
+            position:fixed;
+            top:76px;
+            left:50%;
+            transform:translateX(-50%) translateY(-20px) scale(0.96);
+            opacity:0;
+            pointer-events:none;
+
+            width:calc(100% - 32px);
+            max-width:360px;
+
+            display:flex;
+            flex-direction:column;
+            align-items:stretch;
+            gap:10px;
+            list-style:none;
+
+            padding:16px;
+            margin:0;
+
+            background:rgba(13,13,15,0.92);
+            border:1px solid rgba(255,255,255,0.08);
+            border-radius:20px;
+            backdrop-filter:blur(16px);
+
+            box-shadow:
+              0 18px 40px rgba(0,0,0,0.35),
+              0 0 0 1px rgba(255,255,255,0.02);
+
+            transition:
+              opacity .28s ease,
+              transform .28s ease;
+
+            z-index:9998;
+          }
+
+          .nav-links.open{
+            opacity:1;
+            pointer-events:auto;
+            transform:translateX(-50%) translateY(0) scale(1);
+          }
+
+          .nav-links li{
+            width:100%;
+          }
+
+          .nav-links a{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            width:100%;
+
+            padding:14px 16px;
+            border-radius:14px;
+
+            font-size:13px;
+            font-weight:700;
+            letter-spacing:1.3px;
+            color:#cbd5e1;
+
+            background:rgba(255,255,255,0.03);
+            border:1px solid transparent;
+
+            transition:all .22s ease;
+          }
+
+          .nav-links a:hover{
+            color:#fff;
+            background:rgba(255,255,255,0.06);
+            border-color:rgba(255,255,255,0.06);
+          }
+
+          .nav-links a.active{
+            background:rgba(56,189,248,0.08);
+            border-color:rgba(56,189,248,0.22);
+            color:#67e8f9;
+            -webkit-text-fill-color:unset;
+            -webkit-background-clip:unset;
+            background-image:none;
+          }
         }
 
+        @media(max-width:480px){
+          .navbar{
+            padding:0 14px;
+          }
+
+          .logo{
+            font-size:22px;
+            letter-spacing:1.5px;
+          }
+
+          .menu-icon{
+            width:40px;
+            height:40px;
+            font-size:20px;
+            border-radius:10px;
+          }
+
+          .nav-links{
+            top:74px;
+            width:calc(100% - 24px);
+            padding:14px;
+            border-radius:18px;
+          }
+
+          .nav-links a{
+            font-size:12px;
+            padding:13px 14px;
+            letter-spacing:1.1px;
+          }
+        }
       `}</style>
 
       <nav className="navbar">
-
         <div className="logo">HIBUZ</div>
 
         <div className="nav-right">
-
           <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
             {links.map((link) => (
               <li key={link.name}>
@@ -274,12 +411,16 @@ const Navbar = () => {
             className="menu-icon"
             onClick={() => setMenuOpen(!menuOpen)}
           >
-            ☰
+            {menuOpen ? "✕" : "☰"}
           </div>
-
         </div>
-
       </nav>
+
+      {/* mobile overlay */}
+      <div
+        className={`mobile-overlay ${menuOpen ? "show" : ""}`}
+        onClick={() => setMenuOpen(false)}
+      />
     </>
   );
 };
