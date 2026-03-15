@@ -1,9 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import "./about.css";
+import { User } from "lucide-react";
 
 import ahi from "/assets/ahi.png";
 import arshath from "/assets/clothing6.png";
 import askar from "/assets/clothing6.png";
+
+function ProfileImage({ src, alt }) {
+  const [hasError, setHasError] = useState(false);
+
+  if (!src || hasError) {
+    return (
+      <div className="profile-fallback">
+        <User className="fallback-icon" size={34} strokeWidth={2.2} />
+      </div>
+    );
+  }
+
+  return (
+    <img
+      src={src}
+      alt={alt}
+      className="profile-img"
+      onError={() => setHasError(true)}
+    />
+  );
+}
+
 function AboutSection() {
   return (
     <section id="about" className="about">
@@ -18,9 +41,8 @@ function AboutSection() {
         </p>
 
         <div className="about-highlights">
-
           <div className="highlight-card">
-            <img src={ahi} alt="AHI" className="profile-img"/>
+            <ProfileImage src={ahi} alt="AHI" />
             <h3>AHI</h3>
             <span className="role">Lead</span>
             <p>
@@ -29,8 +51,9 @@ function AboutSection() {
             </p>
           </div>
 
-           <div className="highlight-card">
-            <img src={askar} alt="ASKAR" className="profile-img"/>
+          <div className="highlight-card">
+            {/* TEST panna temporarily empty string podu */}
+            <ProfileImage src="" alt="ASKAR" />
             <h3>ASKAR</h3>
             <span className="role">Frontend Developer</span>
             <p>
@@ -39,9 +62,8 @@ function AboutSection() {
             </p>
           </div>
 
-        
           <div className="highlight-card">
-            <img src={arshath} alt="ARSHATH" className="profile-img"/>
+            <ProfileImage src="" alt="Arshath" />
             <h3>ARSHATH</h3>
             <span className="role">Backend Developer</span>
             <p>
@@ -49,7 +71,6 @@ function AboutSection() {
               technologies and ensures smooth server performance.
             </p>
           </div>
-
         </div>
       </div>
     </section>

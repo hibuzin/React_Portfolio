@@ -7,18 +7,36 @@
 }
 
 /* Label */
+/* Label */
 .section-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
   color: #00d4ff;
   font-size: 12px;
+  font-weight: 600;
   letter-spacing: 3px;
-  margin-bottom: 6px;
+  text-transform: uppercase;
+  margin: 0 0 8px 0;
+}
+
+.section-label::before,
+.section-label::after {
+  content: "";
+  width: 42px;
+  height: 2px;
+  background: #00d4ff;
+  opacity: 0.7;
+  border-radius: 999px;
 }
 
 /* Title */
 .section-title {
   font-size: 40px;
   margin-bottom: 2px;
-  background: linear-gradient(to right, #00d4ff, #8b5cf6);
+  background: linear-gradient(135deg, cyan, purple);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

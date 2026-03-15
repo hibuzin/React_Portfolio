@@ -5,11 +5,26 @@
 }
 
 .process-title {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   font-size: 40px;
-  margin-bottom: 30px;
-  background: linear-gradient(to right, #22d3ee, #6366f1);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, cyan, purple);
   -webkit-background-clip: text;
-  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.process-title::before,
+.process-title::after {
+  content: "";
+  width: 46px;
+  height: 2px;
+  background: #22d3ee;
+  opacity: 0.7;
 }
 
 .process-description {

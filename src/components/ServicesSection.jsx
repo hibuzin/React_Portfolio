@@ -42,7 +42,7 @@ const services = [
   {
     icon: <Layout size={22} />,
     title: "UI Integration",
-    desc: "Convert Figma designs to pixel-perfect, performant applications.",
+    desc: "Convert Figma designs to pixel-perfect, High performance applications.",
     accent: "#818CF8",
   },
   {
@@ -80,18 +80,22 @@ const services = [
 export default function ServicesSection() {
   return (
     <section id="services" className="services-section">
-      <p className="section-label">WHAT WE DO</p>
-      <h2 className="section-title">Our Services</h2>
-      <p className="section-sub">
-        End-to-end software solutions tailored to your business goals.
-      </p>
-      <div className="services-grid">
-        {services.map((service, index) => (
-          <div
-            key={index}
-            className="service-card"
-            style={{ "--accent": service.accent }}
-          >
+  <div className="section-header">
+    <p className="section-label">WHAT WE DO</p>
+    <h2 className="section-title">Our Services</h2>
+    <p className="section-sub">
+      End-to-end software solutions tailored to your business goals.
+    </p>
+  </div>
+
+
+  <div className="services-grid">
+    {services.map((service, index) => (
+      <div
+        key={index}
+        className="service-card"
+        style={{ "--accent": service.accent }}
+      >
             <div className="icon-box">{service.icon}</div>
             <h3>{service.title}</h3>
             <p>{service.desc}</p>

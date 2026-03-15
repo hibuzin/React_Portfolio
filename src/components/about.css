@@ -90,3 +90,27 @@
   margin-bottom:15px;
   
 }
+
+.profile-img,
+.profile-fallback {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.profile-img {
+  object-fit: cover;
+  display: block;
+}
+
+/* fallback icon box */
+.profile-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #111827, #1f2937);
+  border: 1px solid #334155;
+  color: #22d3ee;
+  box-shadow: 0 0 18px rgba(34, 211, 238, 0.12);
+}

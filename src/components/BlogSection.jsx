@@ -19,18 +19,50 @@ const BlogSection = () => {
   return (
     <>
       <style>{`
-        .blog-section{
-          padding:100px 72px;
-          background:#0e161f;
-          color:white;
-          font-family:'DM Sans', sans-serif;
-        }
+        .blog-section {
+  padding: 100px 72px;
+  background: #0e161f;
+  color: white;
+  font-family: 'DM Sans', sans-serif;
+  text-align: center; /* Center all content inside */
+}
 
-        .blog-title{
-          font-size:40px;
-          text-align:center;
-          margin-bottom:60px;
-        }
+/* Label */
+.blog-label {
+  display: flex;              /* use flex (not inline-flex) */
+  align-items: center;
+  gap: 12px;                  /* space between text and lines */
+  justify-content: center;
+
+  color: #00d4ff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin: 0 0 16px 0;
+}
+
+.blog-label::before,
+.blog-label::after {
+  content: "";
+  width: 46px;
+  height: 2px;
+  background: #22d3ee;
+  opacity: 0.7;
+}
+
+/* Title */
+.blog-title {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0 0 50px 0; /* Add bottom margin for spacing from content below */
+  background: linear-gradient(135deg, cyan, rgb(105, 52, 140));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block; /* So gradient text respects centering */
+}
+
 
         .blog-grid{
           display:grid;
@@ -114,7 +146,8 @@ const BlogSection = () => {
       `}</style>
 
       <section id="blog" className="blog-section">
-        <h2 className="blog-title">Latest Blogs</h2>
+        <p className="blog-label">OUR BLOG</p>
+        <h2 className="blog-title">Our Latest Blog</h2>
 
         <div className="blog-grid">
           {blogs.map((blog, index) => (
