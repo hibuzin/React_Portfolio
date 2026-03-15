@@ -57,3 +57,17 @@
   color: #9ca3af;
   font-size: 14px;
 }
+
+@media (max-width: 768px) {
+  .process-steps {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+  }
+
+  .step-card {
+    width: calc(50% - 6px);
+    padding: 18px;
+  }
+}

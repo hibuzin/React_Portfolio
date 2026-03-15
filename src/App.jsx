@@ -24,7 +24,6 @@ function Home() {
       <ServicesSection />
       <ProcessSection />
       <ProjectsSection />
-      <TechSection />
       <BlogSection/>
       <AboutSection />
       <ContactSection />

@@ -9,7 +9,6 @@ const Navbar = () => {
     { name: "SERVICES", id: "services" },
     { name: "OUR PROCESS", id: "process" },
     { name: "PROJECTS", id: "projects" },
-    { name: "TECH", id: "tech" },
     { name: "BLOG", id: "blog" },
     { name: "ABOUT", id: "about" }
   ];
@@ -21,7 +20,6 @@ const Navbar = () => {
         "services",
         "process",
         "projects",
-        "tech",
         "blog",
         "about"
       ];
