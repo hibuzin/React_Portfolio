@@ -475,16 +475,24 @@ const Hero = () => {
           .hero {
             padding: 50px 20px 40px;
             gap: 10px;
-            min-height: auto;
+            min-height: 100vh;
           }
           .hero-left  { margin-top: 0; }
           .hero-title { font-size: 26px; line-height: 1.2; }
           .hero-desc  { font-size: 14px; }
-          .hero-buttons {
-            flex-direction: column;
-            width: 100%;
-            align-items: center;
-          }
+          /* Make buttons smaller but centered on mobile */
+.hero-buttons {
+  flex-direction: column; /* keep stacked */
+  align-items: center;    /* center horizontally */
+  gap: 12px;              /* spacing between buttons */
+}
+
+.hero-buttons .btn-primary,
+.hero-buttons .btn-outline {
+  width: auto;            /* allow shrinking */
+  min-width: 160px;       /* minimum width */
+  padding: 12px 24px;     /* smaller padding */
+}
           .btn-primary,
           .btn-outline {
             width: 100%;
@@ -505,6 +513,14 @@ const Hero = () => {
             margin: 20px auto 30px;
             transform: none;
           }
+
+         /* Keep orbit containers but hide the visible lines */
+.orbit-ring.outer,
+.orbit-ring.inner {
+  border: none;      /* remove the visible circle line */
+  background: none;  /* remove background if any */
+  box-shadow: none;  /* remove any shadow */
+}
 
           /* Decorative rings — centered in the 300×300 box */
           .orbit-ring.outer {
@@ -582,6 +598,11 @@ const Hero = () => {
 
           .planet .label { display: none; }
         }
+
+
+
+
+        
 
         /* ── 460px — same full-circle, just slightly smaller ── */
         @media (max-width: 460px) {
