@@ -10,7 +10,7 @@ const blogs = [
   {
     title: "Client Needed an Urgent MVP — We Delivered a Complete Jewellery Store in 24 Hours",
     desc: "Learn how we rapidly design, develop, and launch MVP products for startups using modern web and mobile technologies.",
-    img: "/assets/jewellery1.png",
+    img: "/assets/jewellery2.png",
     link: "https://medium.com/@hibuzin/client-needed-an-urgent-mvp-we-delivered-a-complete-jewellery-store-in-24-hours-c63923138efd"
   }
 ];
@@ -84,7 +84,7 @@ const BlogSection = () => {
         .blog-card img{
           width:100%;
           height:200px;
-          object-fit:cover;
+           object-fit: contain;
         }
 
         .blog-card h3{
@@ -99,15 +99,16 @@ const BlogSection = () => {
         }
 
         .blog-card button{
-          margin:0 20px 20px 20px;
-          padding:10px 20px;
-          border:none;
-          background:#6c63ff;
-          color:white;
-          border-radius:6px;
-          cursor:pointer;
-          font-size:14px;
-        }
+  margin:0 20px 20px auto;
+  padding:10px 20px;
+  border:none;
+  background:#6c63ff;
+  color:white;
+  border-radius:6px;
+  cursor:pointer;
+  font-size:14px;
+  display:block;
+}
 
         .blog-card button:hover{
           background:#5a52e0;

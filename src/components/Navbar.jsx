@@ -162,7 +162,7 @@ const Navbar = () => {
         }
 
         .live-btn{
-          background:linear-gradient(135deg,#6366f1,#8b5cf6);
+          background: linear-gradient(135deg, #02ACE8, #7C6EFA);
           color:#fff;
           border:none;
           padding:10px 20px;

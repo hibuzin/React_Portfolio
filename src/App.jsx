@@ -1,6 +1,5 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
-
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import ServicesSection from "./components/ServicesSection";
@@ -13,6 +12,7 @@ import ClothingProject from "./pages/ClothingProject";
 import JewelleryProject from "./pages/JewelleryProject";
 import LandProject from "./pages/LandProject";
 import BlogSection from "./components/BlogSection";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 const scrollPositions = {}; 
 
@@ -66,6 +66,7 @@ function App() {
         <Route path="/project/jewellery" element={<JewelleryProject />} />
         <Route path="/project/land" element={<LandProject />} />
       </Routes>
+       <WhatsAppButton />
     </>
   );
 }
