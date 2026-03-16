@@ -62,7 +62,7 @@ const services = [
     title: "UI/UX Design",
     desc: "Modern, intuitive user interface and user experience design focused on usability, aesthetics, and conversion.",
     accent: "#FF61DC",
-    tech: ["Figma", "Wireframes", "Prototyping"],
+    tech: ["Figma"],
   },
   {
     icon: <Sparkles size={22} />,

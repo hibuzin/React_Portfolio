@@ -9,7 +9,7 @@ const images = [
   "/assets/clothing6.png",
 ];
 
-const tech = ["React", "Node.js", "MongoDB", "Render"];
+const tech = ["Flutter", "Node.js", "MongoDB", "Render"];
 
 function PhoneMockup({ src, index, hovered, onEnter, onLeave }) {
   const isHovered = hovered === index;
@@ -139,7 +139,7 @@ function PhoneMockup({ src, index, hovered, onEnter, onLeave }) {
               }}
             />
 
-            {/* Glass shine - reduced for better clarity */}
+            {/* Glass shine */}
             <div
               style={{
                 position: "absolute",
@@ -208,7 +208,7 @@ export default function ClothingProject() {
 
         .cp-hero {
           position: relative;
-          padding: 110px 8% 80px;
+          padding: 80px 8% 5px;
           background: linear-gradient(160deg, #0d1520 0%, #080c10 65%);
           overflow: hidden;
         }
@@ -243,7 +243,7 @@ export default function ClothingProject() {
           text-transform: uppercase;
           color: #0A84FF;
           font-weight: 500;
-          margin-bottom: 28px;
+          margin-bottom: 0px;
           flex-wrap: wrap;
         }
 
@@ -259,7 +259,7 @@ export default function ClothingProject() {
           font-size: clamp(42px, 10vw, 118px);
           line-height: 0.9;
           letter-spacing: 0.02em;
-          margin-bottom: 36px;
+          margin-bottom: 14px;
         }
 
         .cp-title span {
@@ -271,18 +271,19 @@ export default function ClothingProject() {
 
         .cp-meta {
           display: flex;
-          gap: 56px;
+          gap: 10px;
           flex-wrap: wrap;
-          margin-bottom: 44px;
+          margin-bottom: 16px;
           align-items: flex-start;
         }
 
         .cp-desc {
           max-width: 500px;
           font-size: 15px;
-          line-height: 1.9;
+          line-height: 1.8;
           color: #5d7287;
           font-weight: 300;
+          margin: 0;
         }
 
         .cp-info {
@@ -295,6 +296,7 @@ export default function ClothingProject() {
           display: flex;
           gap: 10px;
           flex-wrap: wrap;
+          margin-top: 0;
         }
 
         .cp-tag {
@@ -310,7 +312,7 @@ export default function ClothingProject() {
         }
 
         .cp-gallery-wrap {
-          padding: 90px 6% 110px;
+          padding: 28px 6% 90px;
           background: radial-gradient(ellipse at 50% 0%, rgba(10,132,255,0.04) 0%, transparent 60%);
         }
 
@@ -322,7 +324,7 @@ export default function ClothingProject() {
           letter-spacing: 0.32em;
           text-transform: uppercase;
           color: #2e4055;
-          margin-bottom: 64px;
+          margin-bottom: 26px;
           flex-wrap: wrap;
         }
 
@@ -365,7 +367,15 @@ export default function ClothingProject() {
           }
 
           .cp-hero {
-            padding: 88px 6% 64px;
+            padding: 28px 6% 18px;
+          }
+
+          .cp-gallery-wrap {
+            padding: 24px 5% 72px;
+          }
+
+          .cp-gallery-label {
+            margin-bottom: 22px;
           }
         }
 
@@ -382,24 +392,25 @@ export default function ClothingProject() {
           }
 
           .cp-hero {
-            padding: 72px 5% 48px;
+            padding: 24px 5% 18px;
           }
 
           .cp-gallery-wrap {
-            padding: 56px 4% 72px;
+            padding: 22px 4% 60px;
           }
 
           .cp-meta {
             flex-direction: column;
-            gap: 28px;
+            gap: 14px;
+            margin-bottom: 14px;
           }
 
           .cp-title {
-            margin-bottom: 28px;
+            margin-bottom: 10px;
           }
 
           .cp-gallery-label {
-            margin-bottom: 28px;
+            margin-bottom: 18px;
           }
 
           .cp-desc {

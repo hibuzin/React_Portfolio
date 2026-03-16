@@ -59,7 +59,7 @@ function ContactSection() {
           </p>
 
           <div className="info-item"> hibuzin@gmail.com</div>
-          <div className="info-item"> Chennai, India</div>
+          <div className="info-item"> Tamilnadu, India</div>
         </div>
 
         {/* RIGHT SIDE FORM */}

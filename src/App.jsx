@@ -66,7 +66,6 @@ function App() {
         <Route path="/project/jewellery" element={<JewelleryProject />} />
         <Route path="/project/land" element={<LandProject />} />
       </Routes>
-       <WhatsAppButton />
     </>
   );
 }
