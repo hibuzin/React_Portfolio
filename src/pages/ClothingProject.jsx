@@ -35,7 +35,6 @@ function PhoneMockup({ src, index, hovered, onEnter, onLeave }) {
           transition: "filter 0.5s ease",
         }}
       >
-        {/* Android Phone Body */}
         <div
           style={{
             width: "240px",
@@ -50,7 +49,6 @@ function PhoneMockup({ src, index, hovered, onEnter, onLeave }) {
             transition: "box-shadow 0.4s ease",
           }}
         >
-          {/* Volume buttons */}
           {[75, 122].map((top, i) => (
             <div
               key={i}
@@ -67,7 +65,6 @@ function PhoneMockup({ src, index, hovered, onEnter, onLeave }) {
             />
           ))}
 
-          {/* Power button */}
           <div
             style={{
               position: "absolute",
@@ -81,7 +78,6 @@ function PhoneMockup({ src, index, hovered, onEnter, onLeave }) {
             }}
           />
 
-          {/* Screen */}
           <div
             style={{
               borderRadius: "26px",
@@ -91,7 +87,6 @@ function PhoneMockup({ src, index, hovered, onEnter, onLeave }) {
               boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.2)",
             }}
           >
-            {/* Punch-hole camera */}
             <div
               style={{
                 position: "absolute",
@@ -118,7 +113,6 @@ function PhoneMockup({ src, index, hovered, onEnter, onLeave }) {
               />
             </div>
 
-            {/* Screenshot */}
             <img
               src={src}
               alt={`clothing screen ${index + 1}`}
@@ -130,7 +124,6 @@ function PhoneMockup({ src, index, hovered, onEnter, onLeave }) {
               }}
             />
 
-            {/* Screen glare */}
             <div
               style={{
                 position: "absolute",
@@ -141,7 +134,6 @@ function PhoneMockup({ src, index, hovered, onEnter, onLeave }) {
               }}
             />
 
-            {/* Android nav bar */}
             <div
               style={{
                 position: "absolute",
@@ -232,6 +224,7 @@ export default function ClothingProject() {
           color: #0A84FF;
           font-weight: 500;
           margin-bottom: 28px;
+          flex-wrap: wrap;
         }
 
         .cp-eyebrow::before {
@@ -243,7 +236,7 @@ export default function ClothingProject() {
 
         .cp-title {
           font-family: 'Bebas Neue', sans-serif;
-          font-size: clamp(56px, 10vw, 118px);
+          font-size: clamp(42px, 10vw, 118px);
           line-height: 0.9;
           letter-spacing: 0.02em;
           margin-bottom: 36px;
@@ -324,6 +317,7 @@ export default function ClothingProject() {
           text-transform: uppercase;
           color: #2e4055;
           margin-bottom: 64px;
+          flex-wrap: wrap;
         }
 
         .cp-gallery-label::before {
@@ -336,29 +330,24 @@ export default function ClothingProject() {
         .cp-gallery-label::after {
           content: '';
           flex: 1;
+          min-width: 40px;
           height: 1px;
           background: linear-gradient(90deg, rgba(10,132,255,0.15), transparent);
         }
 
-        /* 🔥 DESKTOP FIXED GRID */
+        /* DESKTOP */
         .cp-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(260px, 260px));
+          grid-template-columns: repeat(3, minmax(0, 1fr));
           gap: 48px 28px;
-          justify-content: center;
+          justify-items: center;
           align-items: start;
           max-width: 920px;
           margin: 0 auto;
         }
 
-        @media (max-width: 1100px) {
-          .cp-grid {
-            max-width: 820px;
-            gap: 42px 22px;
-          }
-        }
-
-        @media (max-width: 960px) {
+        /* TABLET */
+        @media (max-width: 1024px) {
           .cp-grid {
             grid-template-columns: repeat(2, minmax(0, 1fr));
             max-width: 620px;
@@ -366,14 +355,15 @@ export default function ClothingProject() {
           }
 
           .cp-hero {
-            padding: 80px 6% 60px;
+            padding: 88px 6% 64px;
           }
         }
 
-        @media (max-width: 560px) {
+        /* MOBILE - Moto Edge 50 Fusion friendly */
+        @media (max-width: 768px) {
           .cp-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 24px 12px;
+            grid-template-columns: 1fr;
+            gap: 28px;
             max-width: 100%;
           }
 
@@ -382,20 +372,37 @@ export default function ClothingProject() {
           }
 
           .cp-gallery-wrap {
-            padding: 60px 5% 80px;
+            padding: 56px 5% 72px;
           }
 
           .cp-meta {
             flex-direction: column;
             gap: 28px;
           }
+
+          .cp-title {
+            margin-bottom: 28px;
+          }
+
+          .cp-gallery-label {
+            margin-bottom: 36px;
+          }
+
+          .cp-desc {
+            font-size: 14px;
+            line-height: 1.8;
+          }
         }
 
+        /* SMALL MOBILE */
         @media (max-width: 480px) {
-          .cp-grid {
-            grid-template-columns: 1fr;
-            gap: 24px;
-            justify-items: center;
+          .cp-title {
+            font-size: clamp(36px, 14vw, 54px);
+          }
+
+          .cp-tag {
+            font-size: 10px;
+            padding: 6px 14px;
           }
         }
       `}</style>
