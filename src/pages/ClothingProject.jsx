@@ -25,6 +25,7 @@ function PhoneMockup({ src, index, hovered, onEnter, onLeave }) {
         transform: isHovered ? "translateY(-16px) scale(1.03)" : "translateY(0) scale(1)",
         width: "100%",
       }}
+      className="cp-phone-wrap"
     >
       <div
         style={{
@@ -36,8 +37,9 @@ function PhoneMockup({ src, index, hovered, onEnter, onLeave }) {
         }}
       >
         <div
+          className="cp-phone-shell"
           style={{
-            width: "240px",
+            width: "var(--phone-width, 240px)",
             maxWidth: "100%",
             borderRadius: "36px",
             background: "linear-gradient(145deg, #2a2a2a 0%, #1a1a1a 50%, #111111 100%)",
@@ -49,9 +51,11 @@ function PhoneMockup({ src, index, hovered, onEnter, onLeave }) {
             transition: "box-shadow 0.4s ease",
           }}
         >
+          {/* Left side buttons */}
           {[75, 122].map((top, i) => (
             <div
               key={i}
+              className="cp-side-btn left"
               style={{
                 position: "absolute",
                 left: "-4px",
@@ -65,7 +69,9 @@ function PhoneMockup({ src, index, hovered, onEnter, onLeave }) {
             />
           ))}
 
+          {/* Right side button */}
           <div
+            className="cp-side-btn right"
             style={{
               position: "absolute",
               right: "-4px",
@@ -79,6 +85,7 @@ function PhoneMockup({ src, index, hovered, onEnter, onLeave }) {
           />
 
           <div
+            className="cp-screen-wrap"
             style={{
               borderRadius: "26px",
               overflow: "hidden",
@@ -87,14 +94,16 @@ function PhoneMockup({ src, index, hovered, onEnter, onLeave }) {
               boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.2)",
             }}
           >
+            {/* Top camera area */}
             <div
+              className="cp-top-bar"
               style={{
                 position: "absolute",
                 top: 0,
                 left: 0,
                 right: 0,
                 height: "28px",
-                background: "linear-gradient(180deg, rgba(0,0,0,0.6) 0%, transparent 100%)",
+                background: "linear-gradient(180deg, rgba(0,0,0,0.45) 0%, transparent 100%)",
                 zIndex: 5,
                 display: "flex",
                 alignItems: "center",
@@ -103,6 +112,7 @@ function PhoneMockup({ src, index, hovered, onEnter, onLeave }) {
               }}
             >
               <div
+                className="cp-camera"
                 style={{
                   width: "11px",
                   height: "11px",
@@ -113,6 +123,7 @@ function PhoneMockup({ src, index, hovered, onEnter, onLeave }) {
               />
             </div>
 
+            {/* Screen image */}
             <img
               src={src}
               alt={`clothing screen ${index + 1}`}
@@ -121,27 +132,34 @@ function PhoneMockup({ src, index, hovered, onEnter, onLeave }) {
                 display: "block",
                 transition: "transform 0.6s cubic-bezier(0.23,1,0.32,1)",
                 transform: isHovered ? "scale(1.05)" : "scale(1)",
+                imageRendering: "auto",
+                objectFit: "cover",
+                backfaceVisibility: "hidden",
+                WebkitBackfaceVisibility: "hidden",
               }}
             />
 
+            {/* Glass shine - reduced for better clarity */}
             <div
               style={{
                 position: "absolute",
                 inset: 0,
-                background: "linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 45%)",
+                background: "linear-gradient(135deg, rgba(255,255,255,0.025) 0%, transparent 35%)",
                 pointerEvents: "none",
                 zIndex: 4,
               }}
             />
 
+            {/* Bottom nav icons */}
             <div
+              className="cp-bottom-bar"
               style={{
                 position: "absolute",
                 bottom: 0,
                 left: 0,
                 right: 0,
                 height: "22px",
-                background: "linear-gradient(0deg, rgba(0,0,0,0.75) 0%, transparent 100%)",
+                background: "linear-gradient(0deg, rgba(0,0,0,0.55) 0%, transparent 100%)",
                 zIndex: 5,
                 display: "flex",
                 alignItems: "center",
@@ -153,6 +171,7 @@ function PhoneMockup({ src, index, hovered, onEnter, onLeave }) {
               {["‹", "●", "▪"].map((icon, i) => (
                 <span
                   key={i}
+                  className="cp-bottom-icon"
                   style={{
                     fontSize: i === 0 ? "14px" : i === 1 ? "8px" : "7px",
                     color: "rgba(255,255,255,0.35)",
@@ -184,6 +203,7 @@ export default function ClothingProject() {
           color: #e8edf2;
           font-family: 'Outfit', sans-serif;
           overflow-x: hidden;
+          --phone-width: 240px;
         }
 
         .cp-hero {
@@ -271,20 +291,6 @@ export default function ClothingProject() {
           gap: 18px;
         }
 
-        .cp-info-item label {
-          display: block;
-          font-size: 9px;
-          letter-spacing: 0.25em;
-          text-transform: uppercase;
-          color: #2e4055;
-          margin-bottom: 4px;
-        }
-
-        .cp-info-item span {
-          font-size: 13px;
-          color: #7a95aa;
-        }
-
         .cp-tags {
           display: flex;
           gap: 10px;
@@ -348,6 +354,10 @@ export default function ClothingProject() {
 
         /* TABLET */
         @media (max-width: 1024px) {
+          .cp-wrap {
+            --phone-width: 210px;
+          }
+
           .cp-grid {
             grid-template-columns: repeat(2, minmax(0, 1fr));
             max-width: 620px;
@@ -359,11 +369,15 @@ export default function ClothingProject() {
           }
         }
 
-        /* MOBILE - Moto Edge 50 Fusion friendly */
+        /* MOBILE */
         @media (max-width: 768px) {
+          .cp-wrap {
+            --phone-width: 112px;
+          }
+
           .cp-grid {
-            grid-template-columns: 1fr;
-            gap: 28px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px 8px;
             max-width: 100%;
           }
 
@@ -372,7 +386,7 @@ export default function ClothingProject() {
           }
 
           .cp-gallery-wrap {
-            padding: 56px 5% 72px;
+            padding: 56px 4% 72px;
           }
 
           .cp-meta {
@@ -385,17 +399,63 @@ export default function ClothingProject() {
           }
 
           .cp-gallery-label {
-            margin-bottom: 36px;
+            margin-bottom: 28px;
           }
 
           .cp-desc {
             font-size: 14px;
             line-height: 1.8;
           }
+
+          /* Mobile compact phone frame */
+          .cp-phone-wrap {
+            transform: none !important;
+          }
+
+          .cp-phone-shell {
+            border-radius: 22px !important;
+            padding: 4px 4px 6px !important;
+          }
+
+          .cp-screen-wrap {
+            border-radius: 18px !important;
+          }
+
+          .cp-side-btn {
+            display: none !important;
+          }
+
+          .cp-top-bar {
+            height: 12px !important;
+            padding-top: 1px !important;
+            background: linear-gradient(180deg, rgba(0,0,0,0.22) 0%, transparent 100%) !important;
+          }
+
+          .cp-camera {
+            width: 5px !important;
+            height: 5px !important;
+            box-shadow: 0 0 0 1px rgba(255,255,255,0.06), inset 0 0 2px rgba(255,255,255,0.03) !important;
+          }
+
+          .cp-bottom-bar {
+            height: 10px !important;
+            gap: 7px !important;
+            padding-bottom: 1px !important;
+            background: linear-gradient(0deg, rgba(0,0,0,0.18) 0%, transparent 100%) !important;
+          }
+
+          .cp-bottom-icon {
+            font-size: 5px !important;
+            opacity: 0.65;
+          }
         }
 
         /* SMALL MOBILE */
         @media (max-width: 480px) {
+          .cp-wrap {
+            --phone-width: 96px;
+          }
+
           .cp-title {
             font-size: clamp(36px, 14vw, 54px);
           }
@@ -403,6 +463,39 @@ export default function ClothingProject() {
           .cp-tag {
             font-size: 10px;
             padding: 6px 14px;
+          }
+
+          .cp-grid {
+            gap: 12px 6px;
+          }
+
+          .cp-phone-shell {
+            border-radius: 18px !important;
+            padding: 3px 3px 5px !important;
+          }
+
+          .cp-screen-wrap {
+            border-radius: 15px !important;
+          }
+        }
+
+        /* VERY SMALL MOBILE */
+        @media (max-width: 380px) {
+          .cp-wrap {
+            --phone-width: 86px;
+          }
+
+          .cp-grid {
+            gap: 10px 4px;
+          }
+
+          .cp-tag {
+            font-size: 9px;
+            padding: 5px 10px;
+          }
+
+          .cp-phone-shell {
+            padding: 3px 3px 4px !important;
           }
         }
       `}</style>
@@ -424,8 +517,7 @@ export default function ClothingProject() {
               purchases through a clean checkout process.
             </p>
 
-            <div className="cp-info">    
-            </div>
+            <div className="cp-info"></div>
           </div>
 
           <div className="cp-tags">
