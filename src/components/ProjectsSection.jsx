@@ -40,6 +40,7 @@ function ProjectsSection() {
             className={`project-card ${project.fullWidth ? "full-width" : ""}`}
             style={{ "--accent": project.accent }}
           >
+             <div className="project-arrow">↗</div>
             <span className="project-category">{project.category}</span>
             <h3>{project.title}</h3>
             <p>{project.desc}</p>

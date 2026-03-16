@@ -290,12 +290,7 @@ function JewelleryProject() {
               The platform allows users to browse luxury gold collections, explore
               product details, and enjoy a smooth shopping experience.
             </p>
-            <div className="jp-info">
-              <div className="jp-info-item"><label>Category</label><span>E-Commerce</span></div>
-              <div className="jp-info-item"><label>Year</label><span>2024</span></div>
-              <div className="jp-info-item"><label>Role</label><span>UI/UX & Dev</span></div>
-              <div className="jp-info-item"><label>Platform</label><span>Web</span></div>
-            </div>
+           
           </div>
           <div className="jp-tags">
             {tech.map(t => <span key={t} className="jp-tag">{t}</span>)}

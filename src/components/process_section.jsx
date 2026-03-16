@@ -17,7 +17,7 @@ function ProcessSection() {
           <div className="step-card">
             <div className="step-number">01</div>
             <h3>Requirement Discussion</h3>
-            <p>Understanding client goals, project scope and requirements.</p>
+            <p>Understanding your goals, project scope and requirements.</p>
           </div>
 
           <div className="step-card">

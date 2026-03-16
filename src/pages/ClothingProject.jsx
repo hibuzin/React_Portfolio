@@ -424,23 +424,7 @@ export default function ClothingProject() {
               purchases through a clean checkout process.
             </p>
 
-            <div className="cp-info">
-              <div className="cp-info-item">
-                <label>Category</label>
-                <span>E-Commerce</span>
-              </div>
-              <div className="cp-info-item">
-                <label>Year</label>
-                <span>2024</span>
-              </div>
-              <div className="cp-info-item">
-                <label>Role</label>
-                <span>Full Stack Dev</span>
-              </div>
-              <div className="cp-info-item">
-                <label>Platform</label>
-                <span>Android & Web</span>
-              </div>
+            <div className="cp-info">    
             </div>
           </div>
 

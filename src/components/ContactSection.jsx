@@ -59,7 +59,6 @@ function ContactSection() {
           </p>
 
           <div className="info-item"> hibuzin@gmail.com</div>
-          <div className="info-item"> +91 8526854562</div>
           <div className="info-item"> Chennai, India</div>
         </div>
 
