@@ -3,13 +3,13 @@ import React from "react";
 const blogs = [
   {
     title: "How We Built a Real-Time Inventory System for a Jewellery E-commerce Website",
-    desc: "A case study on building a scalable real-time inventory system for a jewellery store.",
+    desc: "A case study on how we build a scalable real-time inventory system for a jewellery store using Socket.io for real time update",
     img: "/assets/jewellery.png",
     link: "https://medium.com/@hibuzin/how-we-built-a-real-time-inventory-system-for-a-jewellery-e-commerce-website-44554646ca1d"
   },
   {
     title: "Client Needed an Urgent MVP — We Delivered a Complete Jewellery Store in 24 Hours",
-    desc: "Learn how we rapidly design, develop, and launch MVP products for startups using modern web and mobile technologies.",
+    desc: "Know how we launch MVP products for startups using React.js as a frontend and Node.js connected with MongoDB for backend",
     img: "/assets/jewellery2.png",
     link: "https://medium.com/@hibuzin/client-needed-an-urgent-mvp-we-delivered-a-complete-jewellery-store-in-24-hours-c63923138efd"
   }
@@ -57,7 +57,7 @@ const BlogSection = () => {
   font-weight: 700;
   line-height: 1.15;
   margin: 0 0 50px 0; /* Add bottom margin for spacing from content below */
-  background: linear-gradient(135deg, cyan, rgb(105, 52, 140));
+  background: linear-gradient(85deg, cyan, rgb(117, 62, 227));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block; /* So gradient text respects centering */

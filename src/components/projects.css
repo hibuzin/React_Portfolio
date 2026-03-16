@@ -43,7 +43,7 @@
   font-weight: 700;
   line-height: 1.15;
   margin: 0;
-  background: linear-gradient(135deg, cyan, rgb(105, 52, 140));
+  background: linear-gradient(85deg, cyan, rgb(117, 62, 227));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

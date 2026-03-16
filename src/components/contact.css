@@ -34,7 +34,7 @@
   font-size: 42px;
   font-weight: 700;
   line-height: 1.15;
-  background: linear-gradient(to right, #22d3ee, #10b981);
+  background: linear-gradient(85deg, cyan, rgb(117, 62, 227));
   -webkit-background-clip: text;
   color: transparent;
   margin-bottom: 20px;

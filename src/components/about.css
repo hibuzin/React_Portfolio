@@ -7,11 +7,24 @@
 }
 
 .about-title {
-  font-size: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 35px;
   margin-bottom: 30px;
-  background: linear-gradient(to right, #22d3ee, #6366f1);
+  background: linear-gradient(85deg, cyan, rgb(117, 62, 227));
   -webkit-background-clip: text;
-  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.about-title::before,
+.about-title::after {
+  content: "";
+  width: 46px;
+  height: 2px;
+  background: #22d3ee;
+  opacity: 0.7;
 }
 
 .about-description {

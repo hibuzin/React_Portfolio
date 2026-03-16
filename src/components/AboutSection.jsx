@@ -3,7 +3,7 @@ import "./about.css";
 import { User } from "lucide-react";
 
 import ahi from "/assets/ahi.png";
-import arshath from "/assets/clothing6.png";
+import arshath from "/assets/Arshath.png";
 import askar from "/assets/clothing6.png";
 
 function ProfileImage({ src, alt }) {
@@ -63,7 +63,7 @@ function AboutSection() {
           </div>
 
           <div className="highlight-card">
-            <ProfileImage src="" alt="Arshath" />
+            <ProfileImage  src={arshath} alt="Arshath" />
             <h3>ARSHATH</h3>
             <span className="role">Backend Developer</span>
             <p>
