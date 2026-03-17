@@ -31,10 +31,10 @@ function ContactSection() {
       const data = await res.json();
 
       if (data.success) {
-        alert("Message sent successfully ✅");
+        alert("Message sent successfully ");
         setForm({ name: "", email: "", message: "" });
       } else {
-        alert(data.message || "Failed ❌");
+        alert(data.message || "Failed ");
       }
     } catch (err) {
       alert("Error sending message");
@@ -58,7 +58,7 @@ function ContactSection() {
             Got a project in mind? Tell us about it — we’ll get back asap.
           </p>
 
-          <div className="info-item"> hibuzin@gmail.com</div>
+          <div className="info-item"> official@ismdatatech.com</div>
           <div className="info-item"> Tamilnadu, India</div>
         </div>
 

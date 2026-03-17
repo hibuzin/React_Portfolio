@@ -299,7 +299,7 @@ function JewelleryProject() {
         /* HERO */
         .jp-hero {
           position: relative;
-          padding: 80px 8% 5px;   /* 👈 top gap romba kammi */
+          padding: 80px 8% 5px;   
           background: linear-gradient(160deg, #0d1520 0%, #080c10 65%);
           overflow: hidden;
         }
@@ -334,7 +334,7 @@ function JewelleryProject() {
           text-transform: uppercase;
           color: #0A84FF;
           font-weight: 500;
-          margin-bottom: 8px;   /* 👈 title ku mela gap kammi */
+          margin-bottom: 8px;   
           flex-wrap: wrap;
         }
 
@@ -350,7 +350,7 @@ function JewelleryProject() {
           font-size: clamp(44px, 10vw, 118px);
           line-height: 0.9;
           letter-spacing: 0.02em;
-          margin-bottom: 14px;   /* 👈 title கீழ gap kammi */
+          margin-bottom: 14px;   
         }
 
         .jp-title span {
